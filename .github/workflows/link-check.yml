@@ -1,5 +1,5 @@
 ---
-name: Link checker finds and reports broken links
+name: Link checker hunts broken links
 
 on:
   workflow_dispatch
@@ -8,8 +8,9 @@ jobs:
   checker:
     runs-on: ubuntu-latest
     steps:
-      - name: run checker in node
+      - name: set up node
         uses: actions/setup-node@v4
         with:
           node-version: lts/*
-      - run: npx broken-link-checker https://learn.madetech.com --exclude microsoft --exclude linkedin --exclude twitter --exclude codewars.com -ro
+      - name: Ensure no broken links
+        run: npx broken-link-checker https://learn.madetech.com --exclude microsoft --exclude linkedin --exclude twitter --exclude codewars.com -ro
