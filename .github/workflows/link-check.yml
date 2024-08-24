@@ -6,7 +6,7 @@ name: Link checker hunts broken links
 
 on:
   schedule:
-    - cron: "20 17 * * 7"
+    - cron: "24 17 * * 6"
 
 jobs:
   checker:
